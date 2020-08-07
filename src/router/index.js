@@ -14,7 +14,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/CreditCard',
+    path: '/2',
     name: 'CreditCard',
     component: EditCredit
 
