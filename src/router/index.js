@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // 引入頁面component
 import Home from '../views/Home.vue'
 import EditCredit from '../views/EditCredit.vue'
+import EditAtm from '../views/EditAtm.vue'
 
 
 Vue.use(VueRouter)
@@ -18,6 +19,11 @@ const routes = [
     name: 'CreditCard',
     component: EditCredit
 
+  },
+  {
+    path: '/3',
+    name: 'Atm',
+    component: EditAtm
   },
 ]
 

@@ -2,43 +2,15 @@
   <div>
     <div class="card-container">
       <div>
-        <input type="checkbox" value="一次付款" />一次付款
-        <input type="checkbox" value="分期付款" />分期付款
-      </div>
-      <div>
-        <p>信用卡號:</p>
-        <div class="credit-container">
-          <div>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
-          </div>
-          <div class="pay-container">
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-visa']" />
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-jcb']" />
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-mastercard']" />
-          </div>
-        </div>
-      </div>
-      <div>
-        <p>有效年月:</p>
-        <div>
-          <input class="time-container" type="text" placeholder="輸入月份" />
-          <span>/</span>
-          <input class="time-container" type="text" placeholder="輸入年份" />
-          <span>年</span>
-        </div>
-      </div>
-      <div>
-        <p>背面末三碼</p>
-        <div>
-          <input class="time-container" type="number" />
-          <font-awesome-icon class="font-style" icon="credit-card" />
-        </div>
+        <p>付款銀行</p>
+        <!-- 串接JSON -->
+        <select class="bank">
+          <option>台灣銀行</option>
+          <option>中信</option>
+          <option>玉山</option>
+        </select>
+        <p>1.請準備晶片金融卡+晶片讀卡機，我們將引導您至指定金融機構之網路ATM進行交易手續</p>
+        <p>2.持對應機構之金融卡可享免跨行轉帳之手續費，若無以上金融機構發行之金融卡，可自由選擇其一金融機構進行後續交易流程</p>
       </div>
       <div>
         <p>填寫付款人信箱</p>
@@ -99,6 +71,11 @@ span {
 .email {
   width: 235px;
   height: 34px;
+}
+.bank {
+  @extend .email;
+  border-radius: 5px;
+  background-color: white;
 }
 input {
   border-radius: 5px;
