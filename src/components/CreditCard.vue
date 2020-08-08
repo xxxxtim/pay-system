@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div class="card-container">
       <div>
         <input type="checkbox" value="一次付款" />一次付款
         <input type="checkbox" value="分期付款" />分期付款
@@ -24,11 +24,35 @@
           </div>
         </div>
       </div>
-      <div>有效年月:</div>
-      <div>背面末三碼</div>
-      <div>填寫付款人信箱</div>
-      <div>再次確認</div>
-      <div>按鈕</div>
+      <div>
+        <p>有效年月:</p>
+        <div>
+          <input class="time-container" type="text" placeholder="輸入月份" />
+          <span>/</span>
+          <input class="time-container" type="text" placeholder="輸入年份" />
+          <span>年</span>
+        </div>
+      </div>
+      <div>
+        <p>背面末三碼</p>
+        <div>
+          <input class="time-container" type="number" />
+          <font-awesome-icon class="font-style" icon="credit-card" />
+        </div>
+      </div>
+      <div>
+        <p>填寫付款人信箱</p>
+        <input class="email" type="email" />
+      </div>
+      <div>
+        <input type="checkbox" value="一次付款" />
+        請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
+        <p>第三方支付金流平台服務條款</p>
+      </div>
+      <div class="btn-container">
+        <button>回上一步</button>
+        <button>確認付款</button>
+      </div>
     </div>
   </div>
 </template>
@@ -41,12 +65,12 @@ export default {};
 .credit-number {
   width: 61px;
   height: 34px;
-  border-radius: 5px;
 }
 .font-style {
-  font-size: 25px;
+  font-size: 35px;
   margin: 0 5px;
   color: #cacaca;
+  vertical-align: middle;
   cursor: pointer;
   &:hover {
     color: #36b996;
@@ -60,5 +84,43 @@ export default {};
   display: flex;
   align-items: center;
   margin-left: 21px;
+}
+.time-container {
+  width: 93px;
+  height: 34px;
+  // margin: 0 8px;
+  // margin-right: 8px;
+  text-align: center;
+}
+span {
+  vertical-align: middle;
+  padding: 0 5px;
+}
+.email {
+  width: 235px;
+  height: 34px;
+}
+input {
+  border-radius: 5px;
+}
+button {
+  width: 98px;
+  height: 40px;
+  background-color: #d5f5e9;
+  color: #5e5e5e;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: #36b996;
+  }
+}
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+.card-container {
+  padding: 0 66px;
 }
 </style>
