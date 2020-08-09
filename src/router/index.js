@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import EditCredit from '../views/EditCredit.vue'
 import EditAtm from '../views/EditAtm.vue'
+import EditMarket from '../views/EditMarket.vue'
 
 
 Vue.use(VueRouter)
@@ -24,6 +25,11 @@ const routes = [
     path: '/3',
     name: 'Atm',
     component: EditAtm
+  },
+  {
+    path: '/4',
+    name: 'Market',
+    component: EditMarket
   },
 ]
 
