@@ -1,58 +1,72 @@
 <template>
   <div>
     <div class="card-container">
-      <div>
-        <input type="checkbox" value="一次付款" />一次付款
-        <input type="checkbox" value="分期付款" />分期付款
-      </div>
-      <div>
-        <p>信用卡號:</p>
-        <div class="credit-container">
+      <form>
+        <div>
+          <input type="radio" name="location" value="一次付款" />一次付款
+          <input type="radio" name="location" value="分期付款" />分期付款
+        </div>
+        <div>
+          <p>信用卡號:</p>
+          <div class="credit-container">
+            <div>
+              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <span>-</span>
+              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <span>-</span>
+              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <span>-</span>
+              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+            </div>
+            <div class="pay-container">
+              <font-awesome-icon class="font-style" :icon="['fab', 'cc-visa']" />
+              <font-awesome-icon class="font-style" :icon="['fab', 'cc-jcb']" />
+              <font-awesome-icon class="font-style" :icon="['fab', 'cc-mastercard']" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <p>有效年月:</p>
           <div>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
-            <span>-</span>
-            <input class="credit-number" type="password" />
+            <input
+              class="time-container"
+              type="text"
+              placeholder="輸入月份"
+              pattern="^[0-1][0-9]$"
+              title="輸入月份"
+            />
+            <span>/</span>
+            <input
+              class="time-container"
+              type="text"
+              placeholder="輸入年份"
+              pattern="\d{4}"
+              title="請輸入西元年"
+            />
+            <span>年</span>
           </div>
-          <div class="pay-container">
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-visa']" />
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-jcb']" />
-            <font-awesome-icon class="font-style" :icon="['fab', 'cc-mastercard']" />
+        </div>
+        <div>
+          <p>背面末三碼</p>
+          <div>
+            <input class="time-container" type="text" pattern="\d{3}" title="請輸入數字" />
+            <font-awesome-icon class="font-style" icon="credit-card" />
           </div>
         </div>
-      </div>
-      <div>
-        <p>有效年月:</p>
         <div>
-          <input class="time-container" type="text" placeholder="輸入月份" />
-          <span>/</span>
-          <input class="time-container" type="text" placeholder="輸入年份" />
-          <span>年</span>
+          <p>填寫付款人信箱</p>
+          <input class="email" type="email" />
         </div>
-      </div>
-      <div>
-        <p>背面末三碼</p>
-        <div>
-          <input class="time-container" type="number" />
-          <font-awesome-icon class="font-style" icon="credit-card" />
+        <div class="check-container">
+          <input type="checkbox" value="一次付款" />
+          請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
+          <p>第三方支付金流平台服務條款</p>
         </div>
-      </div>
-      <div>
-        <p>填寫付款人信箱</p>
-        <input class="email" type="email" />
-      </div>
-      <div class="check-container">
-        <input type="checkbox" value="一次付款" />
-        請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
-        <p>第三方支付金流平台服務條款</p>
-      </div>
-      <div class="btn-container">
-        <button>回上一步</button>
-        <button>確認付款</button>
-      </div>
+        <div class="btn-container">
+          <button>回上一步</button>
+          <button>確認付款</button>
+        </div>
+      </form>
     </div>
   </div>
 </template>

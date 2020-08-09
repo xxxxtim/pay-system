@@ -1,11 +1,13 @@
 <template>
   <div>
     <div class="choice-container">
-      <div class="font-container">
+      <!-- <div class="font-container"> -->
+      <div :class="isActive?'toggle':'font-container'" @click="isActive=!isActive">
         <font-awesome-icon class="font-style" icon="credit-card" />
         <p>信用卡/金融卡</p>
       </div>
       <div class="font-container">
+        <!-- <div :class="isActive?'toggle':'font-container'" @click="isActive=!isActive"> -->
         <font-awesome-icon class="font-style" :icon="['fab', 'cc-paypal']" />
         <p>聯銀卡</p>
       </div>
@@ -31,7 +33,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isActive: false
+    };
+  },
+
+  methods: {}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -49,10 +59,15 @@ export default {};
   margin: 5px;
   border-radius: 5px;
   cursor: pointer;
-  &:hover {
-    background-color: #36b996;
-    color: white;
-  }
+  // &:hover {
+  //   background-color: #36b996;
+  //   color: white;
+  // }
+}
+.toggle {
+  @extend.font-container;
+  background-color: #36b996;
+  color: white;
 }
 .font-style {
   font-size: 49px;
