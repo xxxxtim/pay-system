@@ -2,26 +2,34 @@
   <div>
     <div class="choice-container">
       <!-- <div class="font-container"> -->
-      <div :class="isActive?'toggle':'font-container'" @click="isActive=!isActive">
+      <div
+        :class="{toggle:status==='credit-card'}"
+        class="font-container"
+        @click="status='credit-card'"
+      >
         <font-awesome-icon class="font-style" icon="credit-card" />
         <p>信用卡/金融卡</p>
       </div>
-      <div class="font-container">
+      <div :class="{toggle:status==='pay-pal'}" class="font-container" @click="status='pay-pal'">
         <!-- <div :class="isActive?'toggle':'font-container'" @click="isActive=!isActive"> -->
         <font-awesome-icon class="font-style" :icon="['fab', 'cc-paypal']" />
         <p>聯銀卡</p>
       </div>
-      <div class="font-container">
+      <div :class="{toggle:status==='market'}" class="font-container" @click="status='market'">
         <font-awesome-icon class="font-style" icon="store" />
         <p>超商付款</p>
       </div>
     </div>
     <div class="choice-container">
-      <div class="font-container">
+      <div :class="{toggle:status==='web-atm'}" class="font-container" @click="status='web-atm'">
         <font-awesome-icon class="font-style" icon="globe" />
-        <p>超商付款</p>
+        <p>Web ATM</p>
       </div>
-      <div class="font-container">
+      <div
+        :class="{toggle:status==='atm-trans'}"
+        class="font-container"
+        @click="status='atm-trans'"
+      >
         <font-awesome-icon class="font-style" icon="money-bill-wave" />
         <p>ATM轉帳</p>
       </div>
@@ -36,7 +44,8 @@
 export default {
   data() {
     return {
-      isActive: false
+      isActive: false,
+      status: ""
     };
   },
 

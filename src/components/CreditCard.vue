@@ -10,7 +10,7 @@
           <p>信用卡號:</p>
           <div class="credit-container">
             <div>
-              <input class="credit-number" type="number" pattern="\d{4}" title="請輸入4個數字" />
+              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
               <span>-</span>
               <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
               <span>-</span>
