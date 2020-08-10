@@ -1,28 +1,30 @@
 <template>
   <div>
     <div class="card-container">
-      <div>
-        <p>付款超商</p>
-        <!-- 串接JSON -->
-        <select class="market">
-          <option>全家</option>
-          <option>7-11</option>
-          <option>萊爾富</option>
-        </select>
-      </div>
-      <div>
-        <p>填寫付款人信箱</p>
-        <input class="email" type="email" />
-      </div>
-      <div class="check-container">
-        <input type="checkbox" value="一次付款" />
-        請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
-        <p>第三方支付金流平台服務條款</p>
-      </div>
-      <div class="btn-container">
-        <button>回上一步</button>
-        <button>確認付款</button>
-      </div>
+      <form>
+        <div>
+          <p>付款超商</p>
+          <!-- 串接JSON -->
+          <select class="market">
+            <option>全家</option>
+            <option>7-11</option>
+            <option>萊爾富</option>
+          </select>
+        </div>
+        <div>
+          <p>填寫付款人信箱</p>
+          <input class="email" type="email" pattern="\w+@\w+" title="請輸入正確信箱" />
+        </div>
+        <div class="check-container">
+          <input type="checkbox" value="一次付款" />
+          請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
+          <p>第三方支付金流平台服務條款</p>
+        </div>
+        <div class="btn-container">
+          <button>回上一步</button>
+          <button>確認付款</button>
+        </div>
+      </form>
     </div>
   </div>
 </template>
