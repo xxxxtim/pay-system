@@ -10,7 +10,7 @@
           <p>信用卡號:</p>
           <div class="credit-container">
             <div>
-              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <input class="credit-number" type="number" pattern="\d{4}" title="請輸入4個數字" />
               <span>-</span>
               <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
               <span>-</span>
@@ -32,16 +32,16 @@
               class="time-container"
               type="text"
               placeholder="輸入月份"
-              pattern="^[0-1][0-9]$"
-              title="輸入月份"
+              pattern="^0[1-9]|1[0-2]$"
+              title="輸入月份 ex:01"
             />
             <span>/</span>
             <input
               class="time-container"
               type="text"
-              placeholder="輸入年份"
+              placeholder="輸入西元年"
               pattern="\d{4}"
-              title="請輸入西元年"
+              title="西元年(4碼)"
             />
             <span>年</span>
           </div>
@@ -55,7 +55,7 @@
         </div>
         <div>
           <p>填寫付款人信箱</p>
-          <input class="email" type="email" />
+          <input class="email" type="email" pattern="\w+@\w+" title="請輸入正確信箱" />
         </div>
         <div class="check-container">
           <input type="checkbox" value="一次付款" />
