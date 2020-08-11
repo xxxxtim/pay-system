@@ -5,7 +5,7 @@
         <div>
           <p>付款超商</p>
           <!-- 串接JSON -->
-          <select class="market">
+          <select v-model="market" required class="market">
             <option>全家</option>
             <option>7-11</option>
             <option>萊爾富</option>
@@ -13,16 +13,23 @@
         </div>
         <div>
           <p>填寫付款人信箱</p>
-          <input class="email" type="email" pattern="\w+@\w+" title="請輸入正確信箱" />
+          <input
+            v-model="email"
+            required
+            class="email"
+            type="email"
+            pattern="\w+@\w+"
+            title="請輸入正確信箱"
+          />
         </div>
         <div class="check-container">
-          <input type="checkbox" value="一次付款" />
+          <input required v-model="checked" type="checkbox" value="一次付款" />
           請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
           <p>第三方支付金流平台服務條款</p>
         </div>
         <div class="btn-container">
           <button @click="before">回上一步</button>
-          <button @click="next">確認付款</button>
+          <button type="submit" @click="next">確認付款</button>
         </div>
       </form>
     </div>
@@ -31,12 +38,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      market: "",
+      email: "",
+      checked: ""
+    };
+  },
   methods: {
     before() {
       this.$router.push({ name: "Home" });
     },
     next() {
-      this.$router.push({ name: "Context" });
+      if (this.market && this.email && this.checked) {
+        this.$router.push({ name: "Context" });
+      }
     }
   }
 };
