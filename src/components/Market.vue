@@ -21,8 +21,8 @@
           <p>第三方支付金流平台服務條款</p>
         </div>
         <div class="btn-container">
-          <button>回上一步</button>
-          <button>確認付款</button>
+          <button @click="before">回上一步</button>
+          <button @click="next">確認付款</button>
         </div>
       </form>
     </div>
@@ -30,7 +30,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    before() {
+      this.$router.push({ name: "Home" });
+    },
+    next() {
+      this.$router.push({ name: "Context" });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

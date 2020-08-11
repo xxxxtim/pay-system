@@ -17,14 +17,20 @@
         <p>* 請至您選擇之超商店內機台輸入代碼進行繳費，逾期訂單自動作廢。</p>
       </div>
       <div class="button-container">
-        <button>返回首頁</button>
+        <button @click="toHome">返回首頁</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toHome() {
+      this.$router.push({ name: "Home" });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

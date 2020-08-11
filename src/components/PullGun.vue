@@ -7,13 +7,19 @@
         />
       </div>
       <p>稍候將寄送訂單詳細資訊送至您的E-mail</p>
-      <button>返回首頁</button>
+      <button @click="toHomePage">返回首頁</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toHomePage() {
+      this.$router.push({ name: "Home" });
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
