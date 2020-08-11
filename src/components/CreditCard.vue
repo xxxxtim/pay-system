@@ -3,15 +3,15 @@
     <div class="card-container">
       <form>
         <div>
-          <input v-model="selected" type="radio" name="location" value="一次付款" />一次付款
-          <input v-model="selected" type="radio" name="location" value="分期付款" />分期付款
-          <div>{{selected}}</div>
+          <input required v-model="selected" type="radio" name="location" value="一次付款" />一次付款
+          <input required v-model="selected" type="radio" name="location" value="分期付款" />分期付款
         </div>
         <div>
           <p>信用卡號:</p>
           <div class="credit-container">
             <div>
               <input
+                required
                 v-model="card1"
                 class="credit-number"
                 type="text"
@@ -21,6 +21,7 @@
               />
               <span>-</span>
               <input
+                required
                 v-model="card2"
                 class="credit-number"
                 type="text"
@@ -30,6 +31,7 @@
               />
               <span>-</span>
               <input
+                required
                 v-model="card3"
                 class="credit-number"
                 type="text"
@@ -39,6 +41,7 @@
               />
               <span>-</span>
               <input
+                required
                 v-model="card4"
                 class="credit-number"
                 type="text"
@@ -73,6 +76,7 @@
           <p>有效年月:</p>
           <div>
             <input
+              required
               class="time-container"
               type="text"
               placeholder="輸入月份"
@@ -83,6 +87,7 @@
             />
             <span>/</span>
             <input
+              required
               class="time-container"
               type="text"
               placeholder="輸入西元年"
@@ -98,6 +103,7 @@
           <p>背面末三碼</p>
           <div>
             <input
+              required
               maxlength="3"
               v-model="cvv"
               class="time-container"
@@ -110,16 +116,23 @@
         </div>
         <div>
           <p>填寫付款人信箱</p>
-          <input v-model="email" class="email" type="email" pattern="\w+@\w+\.\w+" title="請輸入正確信箱" />
+          <input
+            required
+            v-model="email"
+            class="email"
+            type="email"
+            pattern="\w+@\w+\.\w+"
+            title="請輸入正確信箱"
+          />
         </div>
         <div class="check-container">
-          <input type="checkbox" value="一次付款" />
+          <input required v-model="check" type="checkbox" value="一次付款" />
           請再次確認「訂單資訊」與「付款資訊」，付款完成後將發送通知信至您的E-mail信箱
           <p>第三方支付金流平台服務條款</p>
         </div>
         <div class="btn-container">
-          <button @click="before">回上一步</button>
-          <button @click="next">確認付款</button>
+          <button type="submit" @click="before">回上一步</button>
+          <button type="submit" @click="next">確認付款</button>
         </div>
       </form>
     </div>
@@ -140,7 +153,8 @@ export default {
       month: "",
       year: "",
       cvv: "",
-      email: ""
+      email: "",
+      check: ""
     };
   },
   methods: {
@@ -148,7 +162,20 @@ export default {
       this.$router.push({ name: "Home" });
     },
     next() {
-      this.$router.push({ name: "Finish" });
+      if (
+        this.selected &&
+        this.card1 &&
+        this.card2 &&
+        this.card3 &&
+        this.card4 &&
+        this.month &&
+        this.year &&
+        this.cvv &&
+        this.email &&
+        this.check
+      ) {
+        this.$router.push({ name: "Finish" });
+      }
     }
   }
 };
