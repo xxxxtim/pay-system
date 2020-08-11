@@ -3,25 +3,69 @@
     <div class="card-container">
       <form>
         <div>
-          <input type="radio" name="location" value="一次付款" />一次付款
-          <input type="radio" name="location" value="分期付款" />分期付款
+          <input v-model="selected" type="radio" name="location" value="一次付款" />一次付款
+          <input v-model="selected" type="radio" name="location" value="分期付款" />分期付款
+          <div>{{selected}}</div>
         </div>
         <div>
           <p>信用卡號:</p>
           <div class="credit-container">
             <div>
-              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <input
+                v-model="card1"
+                class="credit-number"
+                type="text"
+                pattern="\d{4}"
+                title="請輸入4個數字"
+                maxlength="4"
+              />
               <span>-</span>
-              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <input
+                v-model="card2"
+                class="credit-number"
+                type="text"
+                pattern="\d{4}"
+                title="請輸入4個數字"
+                maxlength="4"
+              />
               <span>-</span>
-              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <input
+                v-model="card3"
+                class="credit-number"
+                type="text"
+                pattern="\d{4}"
+                title="請輸入4個數字"
+                maxlength="4"
+              />
               <span>-</span>
-              <input class="credit-number" type="text" pattern="\d{4}" title="請輸入4個數字" />
+              <input
+                v-model="card4"
+                class="credit-number"
+                type="text"
+                pattern="\d{4}"
+                title="請輸入4個數字"
+                maxlength="4"
+              />
             </div>
             <div class="pay-container">
-              <font-awesome-icon class="font-style" :icon="['fab', 'cc-visa']" />
-              <font-awesome-icon class="font-style" :icon="['fab', 'cc-jcb']" />
-              <font-awesome-icon class="font-style" :icon="['fab', 'cc-mastercard']" />
+              <font-awesome-icon
+                @click="status='visa'"
+                :class="{click:status==='visa'}"
+                class="font-style"
+                :icon="['fab', 'cc-visa']"
+              />
+              <font-awesome-icon
+                @click="status='master'"
+                :class="{click:status==='master'}"
+                class="font-style"
+                :icon="['fab', 'cc-jcb']"
+              />
+              <font-awesome-icon
+                @click="status='jcb'"
+                :class="{click:status==='jcb'}"
+                class="font-style"
+                :icon="['fab', 'cc-mastercard']"
+              />
             </div>
           </div>
         </div>
@@ -34,6 +78,8 @@
               placeholder="輸入月份"
               pattern="^0[1-9]|1[0-2]$"
               title="輸入月份 ex:01"
+              maxlength="2"
+              v-model="month"
             />
             <span>/</span>
             <input
@@ -42,6 +88,8 @@
               placeholder="輸入西元年"
               pattern="\d{4}"
               title="西元年(4碼)"
+              maxlength="4"
+              v-model="year"
             />
             <span>年</span>
           </div>
@@ -49,13 +97,20 @@
         <div>
           <p>背面末三碼</p>
           <div>
-            <input class="time-container" type="text" pattern="\d{3}" title="請輸入數字" />
+            <input
+              maxlength="3"
+              v-model="cvv"
+              class="time-container"
+              type="text"
+              pattern="\d{3}"
+              title="請輸入數字"
+            />
             <font-awesome-icon class="font-style" icon="credit-card" />
           </div>
         </div>
         <div>
           <p>填寫付款人信箱</p>
-          <input class="email" type="email" pattern="\w+@\w+" title="請輸入正確信箱" />
+          <input v-model="email" class="email" type="email" pattern="\w+@\w+\.\w+" title="請輸入正確信箱" />
         </div>
         <div class="check-container">
           <input type="checkbox" value="一次付款" />
@@ -72,7 +127,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      status: "",
+      // 表單資訊
+      selected: "",
+      card1: "",
+      card2: "",
+      card3: "",
+      card4: "",
+      month: "",
+      year: "",
+      cvv: "",
+      email: ""
+    };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -86,9 +157,10 @@ export default {};
   color: #cacaca;
   vertical-align: middle;
   cursor: pointer;
-  &:hover {
-    color: #36b996;
-  }
+}
+.click {
+  @extend.font-style;
+  color: #36b996;
 }
 .credit-container {
   display: flex;

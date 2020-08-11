@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="button-container">
-      <button class="button-style">下一步</button>
+      <button @click="next" class="button-style">下一步</button>
     </div>
   </div>
 </template>
@@ -49,7 +49,33 @@ export default {
     };
   },
 
-  methods: {}
+  methods: {
+    next() {
+      // if (this.status === "credit-card") {
+      //   // router.push({ path: "/2" });
+      //   this.$router.push({ path: "/2" });
+      // }
+      switch (this.status) {
+        case "credit-card":
+          this.$router.push({ name: "CreditCard" });
+          break;
+        case "pay-pal":
+          this.$router.push({ name: "CreditCard" });
+          break;
+        case "market":
+          this.$router.push({ name: "Market" });
+          break;
+        case "web-atm":
+          this.$router.push({ name: "Atm" });
+          break;
+        case "atm-trans":
+          this.$router.push({ name: "Atm" });
+          break;
+        default:
+          this.$router.push({ name: "Home" });
+      }
+    }
+  }
 };
 </script>
 
