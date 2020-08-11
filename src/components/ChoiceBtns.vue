@@ -51,10 +51,6 @@ export default {
 
   methods: {
     next() {
-      // if (this.status === "credit-card") {
-      //   // router.push({ path: "/2" });
-      //   this.$router.push({ path: "/2" });
-      // }
       switch (this.status) {
         case "credit-card":
           this.$router.push({ name: "CreditCard" });
