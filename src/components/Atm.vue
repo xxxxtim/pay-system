@@ -16,6 +16,7 @@
         <div>
           <p>填寫付款人信箱</p>
           <input
+            onkeypress="if (event.keyCode == 13) {return false;}"
             required
             v-model="email"
             class="email"

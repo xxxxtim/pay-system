@@ -11,6 +11,7 @@
           <div class="credit-container">
             <div>
               <input
+                onkeypress="if (event.keyCode == 13) {return false;}"
                 required
                 v-model="card1"
                 class="credit-number"
@@ -21,6 +22,7 @@
               />
               <span>-</span>
               <input
+                onkeypress="if (event.keyCode == 13) {return false;}"
                 required
                 v-model="card2"
                 class="credit-number"
@@ -31,6 +33,7 @@
               />
               <span>-</span>
               <input
+                onkeypress="if (event.keyCode == 13) {return false;}"
                 required
                 v-model="card3"
                 class="credit-number"
@@ -41,6 +44,7 @@
               />
               <span>-</span>
               <input
+                onkeypress="if (event.keyCode == 13) {return false;}"
                 required
                 v-model="card4"
                 class="credit-number"
@@ -76,6 +80,7 @@
           <p>有效年月:</p>
           <div>
             <input
+              onkeypress="if (event.keyCode == 13) {return false;}"
               required
               class="time-container"
               type="text"
@@ -87,6 +92,7 @@
             />
             <span>/</span>
             <input
+              onkeypress="if (event.keyCode == 13) {return false;}"
               required
               class="time-container"
               type="text"
@@ -103,6 +109,7 @@
           <p>背面末三碼</p>
           <div>
             <input
+              onkeypress="if (event.keyCode == 13) {return false;}"
               required
               maxlength="3"
               v-model="cvv"
@@ -117,6 +124,7 @@
         <div>
           <p>填寫付款人信箱</p>
           <input
+            onkeypress="if (event.keyCode == 13) {return false;}"
             required
             v-model="email"
             class="email"
